@@ -1,0 +1,119 @@
+.expense-list {
+}
+
+.expense-list-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.expense-list-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.expense-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.delete-button, .edit-button {
+    background: none;
+    margin-left: 5px;
+}
+
+.delete-button:hover, .edit-button:hover {
+    background: none;
+}
+
+.expense-list-button-container {
+    display: flex;
+}
+
+.edit-form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-form input,
+.edit-form select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.edit-form button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.edit-form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.edit-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.filter-section{
+    margin: 30px;
+}
+
+.save-button , .cancel-button{
+    margin: 5px;
+    padding: 2px;
+    background-color: #292828;
+}
+
+.filter-by-category-button , .filter-by-type-button{
+    margin: 2%;
+    padding: 5px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #151515;
+}
+
+.filter-by-category-button:hover , .filter-by-type-button:hover {
+    background-color: #d5d4d4;
+
+}
+
+.add-expense-button{
+    margin-left: 20%;
+}
+.remove-filters-button{
+    margin-right: 20px;
+}

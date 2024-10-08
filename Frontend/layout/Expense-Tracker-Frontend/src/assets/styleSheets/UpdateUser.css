@@ -1,0 +1,121 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.update-popup {
+    display: flex;
+    width: 600px;
+    height: 400px;
+    background-color: #151515;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #ff0000;
+}
+
+.sidebar-section {
+    width: 150px;
+    background-color: #2b2b2b;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.sidebar-section button {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.sidebar-section button:hover {
+    background: #444444;
+    transform: scale(1.05);
+}
+
+.content-section {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222121;
+    text-align: center;
+    color: white;
+}
+
+.update-password-form input,
+.update-name-form input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    transition: border 0.3s ease;
+}
+
+.update-password-form input:hover,
+.update-name-form input:hover {
+    border-color: #ffffff;
+}
+
+.update-password-form input:focus,
+.update-name-form input:focus {
+    border-color: white;
+    outline: none;
+}
+
+.update-password-form button,
+.update-name-form button {
+    background: linear-gradient(90deg, #FF7F50, #f17243);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.update-password-form button:hover,
+.update-name-form button:hover {
+    background: linear-gradient(90deg, #FF7F50, #FF7F50);
+    transform: scale(1.05);
+}
+.update-password-form button:focus,
+.update-name-form button:focus{
+    background: linear-gradient(90deg, #fb875b, #FF7F50);
+
+}

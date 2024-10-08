@@ -1,0 +1,150 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.expense {
+    max-height: 500px;
+    flex: 1;
+}
+
+.turnover {
+    flex: 1;
+    max-height: 300px;
+    margin-top: 7%;
+}
+.turnover p{
+    color: #dad8d8;
+}
+
+
+h2 {
+    text-align: start;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+select:hover {
+    border-color: #007bff;
+}
+
+p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    color: #555;
+}
+
+i {
+    margin-left: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.container-chart{
+    display: flex;
+    flex-direction: row;
+}
+
+.right-pane{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.expense-list-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-weight: bold;
+    margin-bottom: 10px;
+    grid-gap: 20px;
+}
+
+.expense-list-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.expense-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.left-pane{
+    display: flex;
+    flex-direction: column;
+}
+.expenses-info{
+    margin-left: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap:10px ;
+}
+.expenses-info p{
+    color: #dad8d8;
+    text-align: center;
+    padding: 5px;
+}
+
+.expenses-info-expense{
+    border: 2px solid #686565;
+    border-radius: 5%;
+    height: 100px;
+    width: 200px;
+}
+.expenses-info-credit{
+    border: 2px solid #686565;
+    border-radius: 5%;
+    height: 100px;
+    width: 200px;
+}
+.expenses-info-total{
+    border: 2px solid #686565;
+    border-radius: 5%;
+    height: 100px;
+    width: 200px;
+    margin-left: 50%;
+}
+.expenses-info strong{
+    font-size: 22px;
+    font-family: "Apple SD Gothic Neo";
+}

@@ -1,0 +1,139 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.login-heading {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.login-input {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
+    transition: border-color 0.3s, background 0.3s;
+    outline: none;
+}
+
+.login-input:focus,
+.login-input:active {
+    border-color: transparent;
+}
+
+.input-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.login-input:focus + .input-placeholder,
+.login-input:not(:placeholder-shown) + .input-placeholder {
+    top: 0;
+    left: 10px;
+    font-size: 0.75rem;
+    color: #fff;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.login-button {
+    width: fit-content;
+    margin: 20px auto 0;
+    display: block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #FF7F50, #FF4500);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background 1s, transform 0.3s;
+}
+
+.login-button:hover {
+    background: linear-gradient(90deg, #FF7F50, #FF7F50);
+    transform: scale(1.05);
+}
+.login-button:focus{
+    background: linear-gradient(90deg, #fb875b, #FF7F50);
+
+}
+.signup-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-text {
+    color: #c8c6c6;
+    cursor: pointer;
+    position: relative;
+}
+.signup-section button{
+    background-color: transparent;
+}
+.signup-section button:hover{
+    background-color: transparent;
+    transform: scale(1.05);
+}
+.signup-text:hover {
+    color: #fff;
+}
+
+.signup-text::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s, width 0.3s;
+}
+.signup-redirect{
+    color: #b8b6b6;
+}
+
+.signup-text:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+input {
+    height: 25px;
+    width: 80%;
+}

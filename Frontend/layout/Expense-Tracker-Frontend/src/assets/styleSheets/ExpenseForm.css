@@ -1,0 +1,49 @@
+.input-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.input-row input{
+    width: 10%;
+}
+.expense-form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expense-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.close-popup {
+    color: black;
+    cursor: pointer;
+    float: right;
+    background: none;
+    font-size: 1.5rem;
+}
+
+.close-popup:hover {
+    background: none;
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
+.submit-button {
+    margin-left: 10px;
+}
+
+.expense-form-container {
+    margin: 5px;
+}

@@ -1,26 +1,20 @@
 name: Build and Deploy Frontend (React) to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Ensure only one concurrent deployment, but do not cancel in-progress runs
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -37,13 +31,17 @@ jobs:
           cd Frontend/layout/Expense-Tracker-Frontend
           npm install
           npm run build
+      
+      # Debugging step to check the directory structure
+      - name: List files after build
+        run: |
+          ls -R Frontend/layout/Expense-Tracker-Frontend
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./Frontend/layout/Expense-Tracker-Frontend/build
+          path: ./Frontend/layout/Expense-Tracker-Frontend/dist  # Corrected path to dist
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

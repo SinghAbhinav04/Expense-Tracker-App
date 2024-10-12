@@ -1,5 +1,7 @@
 package com.boot.Personal_Finance_Tracker.controllers;
 
+import com.boot.Personal_Finance_Tracker.models.Expense;
+import java.util.Date;
 import com.boot.Personal_Finance_Tracker.services.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -30,5 +33,10 @@ public class ChartController {
         return expenseService.getTotalExpensesByCredit(email);
     }
 
+
+    @GetMapping("/get-by-month")
+    public Map<String , Double> getExpensesByMonth(@RequestParam String email ,@RequestParam String dateFrom , @RequestParam String dateTo){
+        return expenseService.getExpensesByMonth(email, dateFrom , dateTo);
+    }
 
 }

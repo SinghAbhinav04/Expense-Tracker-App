@@ -6,7 +6,6 @@ import com.boot.Personal_Finance_Tracker.repositories.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.*;
 
 @Service
@@ -98,8 +97,6 @@ public class ExpenseService {
         return totalCredit;
     }
 
-
-
     public List<Expense> getRecentExpenses(String email){
         List<Expense> expenses = expenseRepository.findAllByEmail(email);
 
@@ -112,6 +109,20 @@ public class ExpenseService {
             return recentExpenses;
         }
         return new ArrayList<>();
+    }
+
+    public Map<String , Double > getExpensesByMonth(String email , String dateFrom , String dateTo){
+
+        List<Expense> optionalExpense = expenseRepository.findByEmailAndExpenseDate(email, dateFrom, dateTo);
+        Map<String,Double> labelAndValue = new HashMap<>();
+        if(!optionalExpense.isEmpty()){
+            for (Expense e: optionalExpense) {
+                String label = e.getExpenseDetails();
+                Double amount = e.getExpenseAmount();
+                labelAndValue.put(label,amount);
+            }
+        }
+        return labelAndValue;
     }
 }
 

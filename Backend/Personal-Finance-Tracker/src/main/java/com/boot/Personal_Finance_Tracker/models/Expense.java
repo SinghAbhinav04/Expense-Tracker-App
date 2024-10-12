@@ -19,7 +19,7 @@ public class Expense {
     private String expenseDetails;
     private double expenseAmount;
     @Field("date")
-    private Date expenseDate;
+    private String expenseDate;
     private String email;
     private String expenseType;
     private String expenseCategory;

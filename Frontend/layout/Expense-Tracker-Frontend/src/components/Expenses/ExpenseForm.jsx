@@ -23,7 +23,6 @@ const ExpenseForm = ({ fetchExpenses, setIsAddExpenseOpen }) => {
             };
             await axios.post(`http://localhost:8080/api/expense`, expense, { params: { email } });
             fetchExpenses();
-            fetchUsers();
             setIsAddExpenseOpen(false);
         } catch (error) {
             console.error("Error creating expense:", error);

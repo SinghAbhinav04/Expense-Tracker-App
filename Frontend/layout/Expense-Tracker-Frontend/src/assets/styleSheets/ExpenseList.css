@@ -99,21 +99,31 @@
 }
 
 .filter-by-category-button , .filter-by-type-button{
-    margin: 2%;
+    margin: 0.5%;
     padding: 5px;
     height: 40px;
-    background-color: #ffffff;
-    color: #151515;
+    background-color: #fb875b;
+    color: #ffffff;
 }
 
 .filter-by-category-button:hover , .filter-by-type-button:hover {
-    background-color: #d5d4d4;
-
+    background-color: #f6946f;
+    transform: scale(1.1);
 }
 
+.filter-by-category-button:hover , .filter-by-type-button:hover {
+    background-color: #f6a485;
+}
+
+.filter-by-category-button{
+    margin-right: 10%;
+}
 .add-expense-button{
-    margin-left: 20%;
 }
 .remove-filters-button{
-    margin-right: 20px;
+    margin-right: 10%;
+}
+
+.add-expense-button:hover , .remove-filters-button:hover{
+    transform: scale(1.1);
 }

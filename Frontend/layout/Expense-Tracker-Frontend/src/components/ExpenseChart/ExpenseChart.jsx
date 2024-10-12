@@ -23,15 +23,23 @@ const ExpenseChart = () => {
     const [expenseAmount, setExpenseAmount] = useState(0);
     const [creditAmount, setCreditAmount] = useState(0);
 
+    const [startDate , setStartDate] = useState('');
+    const [endDate , setEndDate] = useState('');
+
+    const [chosenGraphFilter, setChosenGraphFilter] = useState('1month');
+
+
     useEffect(() => {
         const email = localStorage.getItem("userEmail");
 
         // Fetching expense chart data
-        axios.get(`http://localhost:8080/api/expense/chart`, { params: { email } })
+        axios.get(`http://localhost:8080/api/expense/chart/get-by-month`, { params: { email:email, dateFrom:startDate,dateTo:endDate } })
             .then(response => {
                 const expenseData = response.data;
                 const labels = Object.keys(expenseData);
                 const amounts = Object.values(expenseData);
+
+
 
                 setExpenseChartData({
                     labels: labels,
@@ -87,7 +95,62 @@ const ExpenseChart = () => {
         };
 
         fetchTurnoverData();
-    }, []);
+    }, [startDate,endDate],[]);
+
+    const setChosenDate=()=>{
+        const today = new Date();
+        let year = today.getFullYear();
+        let day = today.getDate().toString().padStart(2, '0');
+        let startMonth = (today.getMonth()).toString().padStart(2, '0');
+        let endMonth = (today.getMonth()+1).toString().padStart(2, '0');
+        let startFormattedDate = `${year}-${startMonth}-${day}`;
+        let endFormattedDate = `${year}-${endMonth}-${day}`;
+
+
+        switch (chosenGraphFilter){
+            case'1month':
+                setStartDate(startFormattedDate);
+                setEndDate(endFormattedDate);
+                break;
+
+            case '3months':
+                startMonth = (today.getMonth()-2).toString().padStart(2, '0');
+                startFormattedDate = `${year}-${startMonth}-${day}`;
+
+                endMonth = (today.getMonth()+1).toString().padStart(2, '0');
+                endFormattedDate = `${year}-${endMonth}-${day}`;
+
+                setStartDate(startFormattedDate);
+                setEndDate(endFormattedDate);
+                break;
+
+            case '6months':
+                startMonth = (today.getMonth()-5).toString().padStart(2, '0');
+                startFormattedDate = `${year}-${startMonth}-${day}`;
+
+                endMonth = (today.getMonth()+1).toString().padStart(2, '0');
+                endFormattedDate = `${year}-${endMonth}-${day}`;
+
+                setStartDate(startFormattedDate);
+                setEndDate(endFormattedDate);
+                break;
+
+            case '12months':
+                year=today.getFullYear()-1;
+                startFormattedDate=`${year}-${startMonth}-${day}`;
+                endFormattedDate=`${year+1}-${endMonth}-${day}`;
+
+                setStartDate(startFormattedDate);
+                setEndDate(endFormattedDate);
+                break;
+        }
+    }
+
+    useEffect(()=>{
+        setChosenDate();
+
+    },[chosenGraphFilter])
+
 
     const handleChartTypeChange = (event) => {
         setChartType(event.target.value);
@@ -167,6 +230,15 @@ const ExpenseChart = () => {
                                 <option value="bar">Bar Chart</option>
                                 <option value="line">Line Chart</option>
                             </select>
+                            <label htmlFor="dateRangeOption" className="label-dateRangeOption">Select Date Range: </label>
+                            <select id="dateRangeOption" className="option-dateRangeOption" value={chosenGraphFilter} onChange={(e)=>{
+                                setChosenGraphFilter(e.target.value);
+                            }}>
+                                <option value="1month">Past 1 Month</option>
+                                <option value="3months">Past 3 Months</option>
+                                <option value="6months">Past 6 Months</option>
+                                <option value="12months">Past 12 Months</option>
+                            </select>
                             {renderExpenseChart()}
                         </div>
                     </div>
@@ -174,11 +246,11 @@ const ExpenseChart = () => {
                 <div className="expenses-info">
                     <p className="expenses-info-expense">
                         <strong>Expense:</strong> ₹{expenseAmount}
-                        <i className="fas fa-arrow-down" style={{ color: 'red' }}></i>
+                        <i className="fas fa-arrow-down" style={{color: 'red'}}></i>
                     </p>
                     <p className="expenses-info-credit">
                         <strong>Credit:</strong> ₹{creditAmount}
-                        <i className="fas fa-arrow-up" style={{ color: 'green' }}></i>
+                        <i className="fas fa-arrow-up" style={{color: 'green' }}></i>
                     </p>
                     <p className="expenses-info-total">
                         <strong>Total:</strong> ₹{creditAmount - expenseAmount}

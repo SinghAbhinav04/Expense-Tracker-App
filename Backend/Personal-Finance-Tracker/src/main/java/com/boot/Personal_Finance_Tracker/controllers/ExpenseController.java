@@ -48,4 +48,5 @@ public class ExpenseController {
     public List<Expense> getRecentExpenses(@RequestParam String email){
         return expenseService.getRecentExpenses(email);
     }
+
 }

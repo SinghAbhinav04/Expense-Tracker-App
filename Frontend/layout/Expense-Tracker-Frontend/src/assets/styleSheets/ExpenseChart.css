@@ -148,3 +148,7 @@ button:hover {
     font-size: 22px;
     font-family: "Apple SD Gothic Neo";
 }
+
+.label-dateRangeOption{
+    margin-left: 10px;
+}
